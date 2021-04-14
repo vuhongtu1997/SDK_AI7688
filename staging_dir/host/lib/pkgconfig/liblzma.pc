@@ -1,0 +1,19 @@
+#
+# Author: Lasse Collin
+#
+# This file has been put into the public domain.
+# You can do whatever you want with this file.
+#
+
+prefix=/home/duanlc/Desktop/AI7688/AI7688H_Firm/openwrt/staging_dir/host
+exec_prefix=/home/duanlc/Desktop/AI7688/AI7688H_Firm/openwrt/staging_dir/host
+libdir=/home/duanlc/Desktop/AI7688/AI7688H_Firm/openwrt/staging_dir/host/lib
+includedir=/home/duanlc/Desktop/AI7688/AI7688H_Firm/openwrt/staging_dir/host/include
+
+Name: liblzma
+Description: General purpose data compression library
+URL: http://tukaani.org/xz/
+Version: 5.2.1
+Cflags: -I${includedir}
+Libs: -L${libdir} -llzma
+Libs.private: -pthread 

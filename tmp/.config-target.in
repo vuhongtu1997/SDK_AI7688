@@ -1,0 +1,3232 @@
+choice
+	prompt "Target System"
+	default TARGET_ar71xx
+	reset if !DEVEL
+	
+config TARGET_ramips
+	bool "Ralink RT288x/RT3xxx"
+	select HAS_SUBTARGETS
+	help
+	  Build firmware images for Ralink RT288x/RT3xxx based boards.
+
+
+endchoice
+
+choice
+	prompt "Subtarget" if HAS_SUBTARGETS
+
+config TARGET_ramips_rt305x
+	bool "RT3x5x/RT5350 based boards"
+	select LINUX_3_18
+	depends on TARGET_ramips
+	select USES_DEVICETREE
+	select GPIO_SUPPORT
+	select USES_INITRAMFS
+	select USES_SQUASHFS
+	select USB_SUPPORT
+	select mipsel
+	help
+	  Build firmware images for Ralink RT288x/RT3xxx based boards.
+
+
+config TARGET_ramips_mt7620
+	bool "MT7620 based boards"
+	select LINUX_3_18
+	depends on TARGET_ramips
+	select USES_DEVICETREE
+	select GPIO_SUPPORT
+	select PCI_SUPPORT
+	select USES_SQUASHFS
+	select USB_SUPPORT
+	select mipsel
+	help
+	  Build firmware images for Ralink RT288x/RT3xxx based boards.
+
+
+config TARGET_ramips_mt7621
+	bool "MT7621 based boards"
+	select LINUX_3_18
+	depends on TARGET_ramips
+	select USES_DEVICETREE
+	select GPIO_SUPPORT
+	select PCI_SUPPORT
+	select RTC_SUPPORT
+	select USES_SQUASHFS
+	select USB_SUPPORT
+	select mipsel
+	help
+	  Build firmware images for Ralink RT288x/RT3xxx based boards.
+
+
+config TARGET_ramips_mt7628
+	bool "MT7628 based boards"
+	select LINUX_3_18
+	depends on TARGET_ramips
+	select USES_DEVICETREE
+	select GPIO_SUPPORT
+	select PCI_SUPPORT
+	select USES_SQUASHFS
+	select USB_SUPPORT
+	select mipsel
+	help
+	  Build firmware images for Ralink RT288x/RT3xxx based boards.
+
+
+config TARGET_ramips_mt7688
+	bool "MT7688 based boards"
+	select LINUX_3_18
+	depends on TARGET_ramips
+	select USES_DEVICETREE
+	select GPIO_SUPPORT
+	select PCI_SUPPORT
+	select USES_SQUASHFS
+	select USB_SUPPORT
+	select mipsel
+	help
+	  Build firmware images for Ralink RT288x/RT3xxx based boards.
+
+
+config TARGET_ramips_rt3883
+	bool "RT3662/RT3883 based boards"
+	select LINUX_3_18
+	depends on TARGET_ramips
+	select USES_DEVICETREE
+	select GPIO_SUPPORT
+	select PCI_SUPPORT
+	select USES_SQUASHFS
+	select USB_SUPPORT
+	select mipsel
+	help
+	  Build firmware images for Ralink RT288x/RT3xxx based boards.
+
+
+config TARGET_ramips_rt288x
+	bool "RT288x based boards"
+	select LINUX_3_18
+	depends on TARGET_ramips
+	select USES_DEVICETREE
+	select GPIO_SUPPORT
+	select USES_SQUASHFS
+	select USB_SUPPORT
+	select mipsel
+	help
+	  Build firmware images for Ralink RT288x/RT3xxx based boards.
+
+
+endchoice
+
+choice
+	prompt "Target Profile"
+
+config TARGET_ramips_rt305x_Default
+	bool "Default Profile"
+	depends on TARGET_ramips_rt305x
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-leds-gpio
+	select DEFAULT_kmod-ledtrig-usbdev
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_kmod-rt2800-soc
+	select DEFAULT_kmod-usb-core
+	select DEFAULT_kmod-usb-dwc2
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_logd
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Default package set compatible with most boards.
+
+config TARGET_ramips_rt305x_ALL02393G
+	bool "Allnet ALL0239-3G"
+	depends on TARGET_ramips_rt305x
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-leds-gpio
+	select DEFAULT_kmod-ledtrig-usbdev
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_kmod-rt2800-soc
+	select DEFAULT_kmod-usb-core
+	select DEFAULT_kmod-usb-dwc2
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_logd
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set for Allnet ALL0239-3G
+
+config TARGET_ramips_rt305x_ALL0256N
+	bool "Allnet ALL0256N"
+	depends on TARGET_ramips_rt305x
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-leds-gpio
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_kmod-rt2800-soc
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_logd
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_rssileds
+	select DEFAULT_swconfig
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set for Allnet ALL0256N
+
+config TARGET_ramips_rt305x_ALL5002
+	bool "Allnet ALL5002"
+	depends on TARGET_ramips_rt305x
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-gpio-pcf857x
+	select DEFAULT_kmod-hwmon-lm92
+	select DEFAULT_kmod-i2c-core
+	select DEFAULT_kmod-i2c-gpio
+	select DEFAULT_kmod-leds-gpio
+	select DEFAULT_kmod-ledtrig-usbdev
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_kmod-rt2800-soc
+	select DEFAULT_kmod-usb-core
+	select DEFAULT_kmod-usb-ohci
+	select DEFAULT_kmod-usb2
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_logd
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set for Allnet ALL5002
+
+config TARGET_ramips_rt305x_ALL5003
+	bool "Allnet ALL5003"
+	depends on TARGET_ramips_rt305x
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-gpio-pcf857x
+	select DEFAULT_kmod-hwmon-lm92
+	select DEFAULT_kmod-i2c-core
+	select DEFAULT_kmod-i2c-gpio
+	select DEFAULT_kmod-leds-gpio
+	select DEFAULT_kmod-ledtrig-usbdev
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_kmod-rt2800-soc
+	select DEFAULT_kmod-usb-core
+	select DEFAULT_kmod-usb-ohci
+	select DEFAULT_kmod-usb2
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_logd
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set for Allnet ALL5003
+
+config TARGET_ramips_rt305x_ASL26555
+	bool "Alpha ASL26555"
+	depends on TARGET_ramips_rt305x
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-leds-gpio
+	select DEFAULT_kmod-ledtrig-usbdev
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_kmod-rt2800-soc
+	select DEFAULT_kmod-usb-core
+	select DEFAULT_kmod-usb-dwc2
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_logd
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set for Alpha ASL26555
+
+config TARGET_ramips_rt305x_AWM002EVB
+	bool "AsiaRF AWM002-EVB"
+	depends on TARGET_ramips_rt305x
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-i2c-core
+	select DEFAULT_kmod-i2c-gpio
+	select DEFAULT_kmod-leds-gpio
+	select DEFAULT_kmod-ledtrig-usbdev
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_kmod-rt2800-soc
+	select DEFAULT_kmod-usb-core
+	select DEFAULT_kmod-usb-ohci
+	select DEFAULT_kmod-usb2
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_logd
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set for AsiaRF AWM002 Evaluation Board
+
+config TARGET_ramips_rt305x_AWM003EVB
+	bool "AsiaRF AWM003-EVB"
+	depends on TARGET_ramips_rt305x
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-i2c-core
+	select DEFAULT_kmod-i2c-gpio
+	select DEFAULT_kmod-leds-gpio
+	select DEFAULT_kmod-ledtrig-usbdev
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_kmod-rt2800-soc
+	select DEFAULT_kmod-usb-core
+	select DEFAULT_kmod-usb-ohci
+	select DEFAULT_kmod-usb2
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_logd
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set for AsiaRF AWM003 Evaluation Board
+
+config TARGET_ramips_rt305x_AWAPN2403
+	bool "AsiaRF AWAPN2403"
+	depends on TARGET_ramips_rt305x
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-leds-gpio
+	select DEFAULT_kmod-ledtrig-usbdev
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_kmod-rt2800-soc
+	select DEFAULT_kmod-usb-core
+	select DEFAULT_kmod-usb-dwc2
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_logd
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set for AsiaRF AWAPN2403 Pocket Router
+
+config TARGET_ramips_rt305x_RT-N10-PLUS
+	bool "Asus RT-N10+"
+	depends on TARGET_ramips_rt305x
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-leds-gpio
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_kmod-rt2800-soc
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_logd
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set for Asus RT-N10+.
+
+config TARGET_ramips_rt305x_RT-N13U
+	bool "Asus RT-N13U"
+	depends on TARGET_ramips_rt305x
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-leds-gpio
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_kmod-rt2800-pci
+	select DEFAULT_kmod-rt2800-soc
+	select DEFAULT_kmod-usb-dwc2
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_logd
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set for Asus RT-N13U.
+
+config TARGET_ramips_rt305x_MR102N
+	bool "AXIMCom MR-102N"
+	depends on TARGET_ramips_rt305x
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-leds-gpio
+	select DEFAULT_kmod-ledtrig-usbdev
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_kmod-rt2800-soc
+	select DEFAULT_kmod-usb-core
+	select DEFAULT_kmod-usb-dwc2
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_logd
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set for AXIMCom MR-102N
+
+config TARGET_ramips_rt305x_HW550-3G
+	bool "Aztech HW550-3G"
+	depends on TARGET_ramips_rt305x
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-leds-gpio
+	select DEFAULT_kmod-ledtrig-usbdev
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_kmod-rt2800-soc
+	select DEFAULT_kmod-usb-core
+	select DEFAULT_kmod-usb-dwc2
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_logd
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set for Aztech HW550-3G
+
+config TARGET_ramips_rt305x_F5D8235V2
+	bool "Belkin F5D8235 v2"
+	depends on TARGET_ramips_rt305x
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-leds-gpio
+	select DEFAULT_kmod-ledtrig-usbdev
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_kmod-rt2800-soc
+	select DEFAULT_kmod-swconfig
+	select DEFAULT_kmod-switch-rtl8366rb
+	select DEFAULT_kmod-usb-core
+	select DEFAULT_kmod-usb-dwc2
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_logd
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set for Belkin F5D8235 v2
+
+config TARGET_ramips_rt305x_F7C027
+	bool "Belkin F7C027"
+	depends on TARGET_ramips_rt305x
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-leds-gpio
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_kmod-rt2800-soc
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_logd
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set for Belkin F7C027 - Plug with soc_ap and a relay
+
+config TARGET_ramips_rt305x_BROADWAY
+	bool "Hauppauge Broadway"
+	depends on TARGET_ramips_rt305x
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-leds-gpio
+	select DEFAULT_kmod-ledtrig-usbdev
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_kmod-rt2800-soc
+	select DEFAULT_kmod-usb-core
+	select DEFAULT_kmod-usb-dwc2
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_logd
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set for Hauppauge Broadway
+
+config TARGET_ramips_rt305x_DIR615H1
+	bool "Dlink DIR-615 H1"
+	depends on TARGET_ramips_rt305x
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-leds-gpio
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_kmod-rt2800-soc
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_logd
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set for Dlink DIR-615 H1 board
+
+config TARGET_ramips_rt305x_DIR-615-D
+	bool "Dlink DIR-615 D"
+	depends on TARGET_ramips_rt305x
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-leds-gpio
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_kmod-rt2800-soc
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_logd
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set for Dlink DIR-615 D board
+
+config TARGET_ramips_rt305x_DCS930
+	bool "Dlink DCS-930"
+	depends on TARGET_ramips_rt305x
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-leds-gpio
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_kmod-rt2800-soc
+	select DEFAULT_kmod-sound-core
+	select DEFAULT_kmod-usb-audio
+	select DEFAULT_kmod-usb-core
+	select DEFAULT_kmod-usb-dwc2
+	select DEFAULT_kmod-video-core
+	select DEFAULT_kmod-video-uvc
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_logd
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set for Dlink DCS-930 board
+
+config TARGET_ramips_rt305x_DCS930LB1
+	bool "Dlink DCS-930L B1"
+	depends on TARGET_ramips_rt305x
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-leds-gpio
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_kmod-rt2800-soc
+	select DEFAULT_kmod-sound-core
+	select DEFAULT_kmod-usb-audio
+	select DEFAULT_kmod-usb-core
+	select DEFAULT_kmod-usb-ohci
+	select DEFAULT_kmod-usb2
+	select DEFAULT_kmod-video-core
+	select DEFAULT_kmod-video-uvc
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_logd
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set for Dlink DCS-930L B1 board
+
+config TARGET_ramips_rt305x_DIR610A1
+	bool "Dlink DIR-610 A1"
+	depends on TARGET_ramips_rt305x
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-leds-gpio
+	select DEFAULT_kmod-ledtrig-netdev
+	select DEFAULT_kmod-ledtrig-timer
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_kmod-rt2800-soc
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_logd
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set for Dlink DIR610 A1 board
+
+config TARGET_ramips_rt305x_WIZARD8800
+	bool "EasyAcc WIZARD 8800"
+	depends on TARGET_ramips_rt305x
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_block-mount
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-fs-ext4
+	select DEFAULT_kmod-fs-msdos
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-leds-gpio
+	select DEFAULT_kmod-ledtrig-netdev
+	select DEFAULT_kmod-ledtrig-timer
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_kmod-rt2800-soc
+	select DEFAULT_kmod-scsi-core
+	select DEFAULT_kmod-scsi-generic
+	select DEFAULT_kmod-usb-core
+	select DEFAULT_kmod-usb-net
+	select DEFAULT_kmod-usb-ohci
+	select DEFAULT_kmod-usb-storage
+	select DEFAULT_kmod-usb-storage-extras
+	select DEFAULT_kmod-usb2
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_logd
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uci
+	select DEFAULT_usbutils
+	select DEFAULT_wpad-mini
+	help
+	  Package set for EasyAcc Wi-Stor Wizard 4in1 wireless storage 8800
+
+config TARGET_ramips_rt305x_ESR9753
+	bool "EnGenius Profile"
+	depends on TARGET_ramips_rt305x
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-leds-gpio
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_kmod-rt2800-soc
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_logd
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  EnGenius profile.
+
+config TARGET_ramips_rt305x_FONERA20N
+	bool "Fonera 2.0N"
+	depends on TARGET_ramips_rt305x
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-leds-gpio
+	select DEFAULT_kmod-ledtrig-usbdev
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_kmod-rt2800-soc
+	select DEFAULT_kmod-usb-core
+	select DEFAULT_kmod-usb-dwc2
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_logd
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set for Fonera 2.0N
+
+config TARGET_ramips_rt305x_FREESTATION5
+	bool "FreeStation5"
+	depends on TARGET_ramips_rt305x
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-leds-gpio
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_kmod-rt2500-usb
+	select DEFAULT_kmod-rt2800-soc
+	select DEFAULT_kmod-rt2800-usb
+	select DEFAULT_kmod-rt2x00-usb
+	select DEFAULT_kmod-usb-dwc2
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_logd
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set for ARC FreeStation, Flex mARC, iFlex, and SplitStation
+
+config TARGET_ramips_rt305x_MPRA1
+	bool "HAME MPR-A1"
+	depends on TARGET_ramips_rt305x
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-leds-gpio
+	select DEFAULT_kmod-ledtrig-netdev
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_kmod-rt2800-soc
+	select DEFAULT_kmod-usb-core
+	select DEFAULT_kmod-usb-ohci
+	select DEFAULT_kmod-usb2
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_logd
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set for HAME MPR-A1 board
+
+config TARGET_ramips_rt305x_MPRA2
+	bool "HAME MPR-A2"
+	depends on TARGET_ramips_rt305x
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-leds-gpio
+	select DEFAULT_kmod-ledtrig-netdev
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_kmod-rt2800-soc
+	select DEFAULT_kmod-usb-core
+	select DEFAULT_kmod-usb-ohci
+	select DEFAULT_kmod-usb2
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_logd
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set for HAME MPR-A2 board
+
+config TARGET_ramips_rt305x_HG255D
+	bool "HuaWei HG255D"
+	depends on TARGET_ramips_rt305x
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-leds-gpio
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_kmod-rt2800-soc
+	select DEFAULT_kmod-usb-dwc2
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_logd
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set for HuaWei HG255D.
+
+config TARGET_ramips_rt305x_HLKRM04
+	bool "HILINK HLK-RM04"
+	depends on TARGET_ramips_rt305x
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-leds-gpio
+	select DEFAULT_kmod-ledtrig-usbdev
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_kmod-rt2800-soc
+	select DEFAULT_kmod-usb-core
+	select DEFAULT_kmod-usb-dwc2
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_logd
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set for HiLink RM04 Module
+
+config TARGET_ramips_rt305x_HT-TM02
+	bool "HooToo HT-TM02"
+	depends on TARGET_ramips_rt305x
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-leds-gpio
+	select DEFAULT_kmod-ledtrig-usbdev
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_kmod-rt2800-soc
+	select DEFAULT_kmod-usb-core
+	select DEFAULT_kmod-usb-ohci
+	select DEFAULT_kmod-usb2
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_logd
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set optimized for the HooToo HT-TM02.
+
+config TARGET_ramips_rt305x_M2M
+	bool "Intenso Memory 2 Move"
+	depends on TARGET_ramips_rt305x
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_block-mount
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-fs-ext4
+	select DEFAULT_kmod-fs-vfat
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-leds-gpio
+	select DEFAULT_kmod-ledtrig-netdev
+	select DEFAULT_kmod-ledtrig-timer
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_kmod-rt2800-soc
+	select DEFAULT_kmod-scsi-core
+	select DEFAULT_kmod-usb-core
+	select DEFAULT_kmod-usb-storage
+	select DEFAULT_kmod-usb2
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_logd
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set for Intenso Memory 2 Move USB 3.0
+
+config TARGET_ramips_rt305x_A5-V11
+	bool "A5-V11"
+	depends on TARGET_ramips_rt305x
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-leds-gpio
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_kmod-rt2800-soc
+	select DEFAULT_kmod-usb-core
+	select DEFAULT_kmod-usb-ohci
+	select DEFAULT_kmod-usb2
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_logd
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set for A5-V11
+
+config TARGET_ramips_rt305x_WT1520
+	bool "Nexx WT1520"
+	depends on TARGET_ramips_rt305x
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-leds-gpio
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_kmod-rt2800-soc
+	select DEFAULT_kmod-usb2
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_logd
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set for WT1520
+
+config TARGET_ramips_rt305x_OLINUXINO-RT5350F-EVB
+	bool "OLinuXino-RT5350F-EVB"
+	depends on TARGET_ramips_rt305x
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-i2c-core
+	select DEFAULT_kmod-i2c-ralink
+	select DEFAULT_kmod-leds-gpio
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_kmod-rt2800-soc
+	select DEFAULT_kmod-spi-dev
+	select DEFAULT_kmod-usb-core
+	select DEFAULT_kmod-usb-ohci
+	select DEFAULT_kmod-usb2
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_logd
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+
+config TARGET_ramips_rt305x_OLINUXINO-RT5350F
+	bool "OLinuXino-RT5350F"
+	depends on TARGET_ramips_rt305x
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-i2c-core
+	select DEFAULT_kmod-i2c-ralink
+	select DEFAULT_kmod-leds-gpio
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_kmod-rt2800-soc
+	select DEFAULT_kmod-spi-dev
+	select DEFAULT_kmod-usb-core
+	select DEFAULT_kmod-usb-ohci
+	select DEFAULT_kmod-usb2
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_logd
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set for OLinuXino-RT5350F board
+
+config TARGET_ramips_rt305x_IP2202
+	bool "Poray IP2202"
+	depends on TARGET_ramips_rt305x
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-leds-gpio
+	select DEFAULT_kmod-ledtrig-netdev
+	select DEFAULT_kmod-ledtrig-timer
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_kmod-rt2800-soc
+	select DEFAULT_kmod-usb-core
+	select DEFAULT_kmod-usb-dwc2
+	select DEFAULT_kmod-usb2
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_logd
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set for Poray IP2202 board
+
+config TARGET_ramips_rt305x_M3
+	bool "Poray M3"
+	depends on TARGET_ramips_rt305x
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-leds-gpio
+	select DEFAULT_kmod-ledtrig-netdev
+	select DEFAULT_kmod-ledtrig-timer
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_kmod-rt2800-soc
+	select DEFAULT_kmod-usb-core
+	select DEFAULT_kmod-usb2
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_logd
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set for Poray M3 board
+
+config TARGET_ramips_rt305x_M4
+	bool "Poray M4"
+	depends on TARGET_ramips_rt305x
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-leds-gpio
+	select DEFAULT_kmod-ledtrig-netdev
+	select DEFAULT_kmod-ledtrig-timer
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_kmod-rt2800-soc
+	select DEFAULT_kmod-usb-core
+	select DEFAULT_kmod-usb2
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_logd
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set for Poray M4 board
+
+config TARGET_ramips_rt305x_X5
+	bool "Poray X5/X6"
+	depends on TARGET_ramips_rt305x
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-leds-gpio
+	select DEFAULT_kmod-ledtrig-netdev
+	select DEFAULT_kmod-ledtrig-timer
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_kmod-rt2800-soc
+	select DEFAULT_kmod-usb-core
+	select DEFAULT_kmod-usb2
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_logd
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set for Poray X5/X6 board
+
+config TARGET_ramips_rt305x_X8
+	bool "Poray X8"
+	depends on TARGET_ramips_rt305x
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-leds-gpio
+	select DEFAULT_kmod-ledtrig-netdev
+	select DEFAULT_kmod-ledtrig-timer
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_kmod-rt2800-soc
+	select DEFAULT_kmod-usb-core
+	select DEFAULT_kmod-usb2
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_logd
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set for Poray X8 board
+
+config TARGET_ramips_rt305x_PX4885
+	bool "7Links PX-4885"
+	depends on TARGET_ramips_rt305x
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-leds-gpio
+	select DEFAULT_kmod-ledtrig-usbdev
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_kmod-rt2800-soc
+	select DEFAULT_kmod-usb-core
+	select DEFAULT_kmod-usb-dwc2
+	select DEFAULT_kmod-usb-ohci
+	select DEFAULT_kmod-usb2
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_logd
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set for 7Links PX-4885 wireless router.
+
+config TARGET_ramips_rt305x_3G150B
+	bool "Tenda 3G150B"
+	depends on TARGET_ramips_rt305x
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-leds-gpio
+	select DEFAULT_kmod-ledtrig-usbdev
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_kmod-rt2800-soc
+	select DEFAULT_kmod-usb-core
+	select DEFAULT_kmod-usb-dwc2
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_logd
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set for Tenda 3G150B board
+
+config TARGET_ramips_rt305x_3G300M
+	bool "Tenda 3G300M"
+	depends on TARGET_ramips_rt305x
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-leds-gpio
+	select DEFAULT_kmod-ledtrig-usbdev
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_kmod-rt2800-soc
+	select DEFAULT_kmod-usb-core
+	select DEFAULT_kmod-usb-dwc2
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_logd
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set for Tenda 3G300M board
+
+config TARGET_ramips_rt305x_W306R_V20
+	bool "Tenda W306R V2.0"
+	depends on TARGET_ramips_rt305x
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-leds-gpio
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_kmod-rt2800-soc
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_logd
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set for Tenda W306R V2.0 board
+
+config TARGET_ramips_rt305x_UR-336UN
+	bool "UPVEL UR-336UN"
+	depends on TARGET_ramips_rt305x
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-leds-gpio
+	select DEFAULT_kmod-ledtrig-usbdev
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_kmod-rt2800-soc
+	select DEFAULT_kmod-usb-core
+	select DEFAULT_kmod-usb-dwc2
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_logd
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Default package set compatible with URVEL router board.
+
+config TARGET_ramips_rt305x_UR-326N4G
+	bool "UPVEL UR-326N4G"
+	depends on TARGET_ramips_rt305x
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-leds-gpio
+	select DEFAULT_kmod-ledtrig-usbdev
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_kmod-rt2800-soc
+	select DEFAULT_kmod-usb-core
+	select DEFAULT_kmod-usb-dwc2
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_logd
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Default package set compatible with URVEL router board.
+
+config TARGET_ramips_rt305x_VOCORE
+	bool "VoCore"
+	depends on TARGET_ramips_rt305x
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-i2c-core
+	select DEFAULT_kmod-i2c-ralink
+	select DEFAULT_kmod-leds-gpio
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_kmod-rt2800-soc
+	select DEFAULT_kmod-spi-dev
+	select DEFAULT_kmod-usb-core
+	select DEFAULT_kmod-usb-ohci
+	select DEFAULT_kmod-usb2
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_logd
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set for VoCore board
+
+config TARGET_ramips_rt305x_NCS601W
+	bool "Wansview NCS601W"
+	depends on TARGET_ramips_rt305x
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-leds-gpio
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_kmod-rt2800-soc
+	select DEFAULT_kmod-usb-core
+	select DEFAULT_kmod-usb-ohci
+	select DEFAULT_kmod-video-core
+	select DEFAULT_kmod-video-uvc
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_logd
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set for Wansview NCS601W board
+
+config TARGET_ramips_rt305x_WIZFI630A
+	bool "WIZnet WizFi630A"
+	depends on TARGET_ramips_rt305x
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-leds-gpio
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_kmod-rt2800-soc
+	select DEFAULT_kmod-usb2
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_logd
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set for WIZnet WizFi630A board
+
+config TARGET_ramips_mt7620_Default
+	bool "Default Profile"
+	depends on TARGET_ramips_mt7620
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-leds-gpio
+	select DEFAULT_kmod-ledtrig-usbdev
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_kmod-rt2800-pci
+	select DEFAULT_kmod-rt2800-soc
+	select DEFAULT_kmod-usb-core
+	select DEFAULT_kmod-usb-ohci
+	select DEFAULT_kmod-usb2
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_logd
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Default package set compatible with MT7620a eval board
+
+config TARGET_ramips_mt7620_AIBR100
+	bool "Aigale Ai-BR100"
+	depends on TARGET_ramips_mt7620
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-leds-gpio
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_kmod-rt2800-pci
+	select DEFAULT_kmod-rt2800-soc
+	select DEFAULT_kmod-usb-ohci
+	select DEFAULT_kmod-usb2
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_logd
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Default package set for Aigale Ai-BR100.
+
+config TARGET_ramips_mt7620_E1700
+	bool "Linksys E1700"
+	depends on TARGET_ramips_mt7620
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-leds-gpio
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_kmod-rt2800-pci
+	select DEFAULT_kmod-rt2800-soc
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_logd
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set compatible with the Linksys E1700.
+
+config TARGET_ramips_mt7620_MT7620a
+	bool "MT7620a EVB"
+	depends on TARGET_ramips_mt7620
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-leds-gpio
+	select DEFAULT_kmod-ledtrig-usbdev
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_kmod-rt2800-pci
+	select DEFAULT_kmod-rt2800-soc
+	select DEFAULT_kmod-usb-core
+	select DEFAULT_kmod-usb-ohci
+	select DEFAULT_kmod-usb2
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_logd
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+
+config TARGET_ramips_mt7620_MicroWRT
+	bool "Microduino MicroWRT"
+	depends on TARGET_ramips_mt7620
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-leds-gpio
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_kmod-rt2800-pci
+	select DEFAULT_kmod-rt2800-soc
+	select DEFAULT_kmod-usb-core
+	select DEFAULT_kmod-usb-ohci
+	select DEFAULT_kmod-usb2
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_logd
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set compatible with MicroWRT
+
+config TARGET_ramips_mt7620_EX2700
+	bool "Netgear EX2700"
+	depends on TARGET_ramips_mt7620
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-leds-gpio
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_kmod-rt2800-pci
+	select DEFAULT_kmod-rt2800-soc
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_logd
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Support for Netgear EX2700
+
+config TARGET_ramips_mt7620_XIAOMI-MIWIFI-MINI
+	bool "Xiaomi MiWiFi Mini"
+	depends on TARGET_ramips_mt7620
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-leds-gpio
+	select DEFAULT_kmod-mt76
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_kmod-rt2800-pci
+	select DEFAULT_kmod-rt2800-soc
+	select DEFAULT_kmod-usb-core
+	select DEFAULT_kmod-usb-dwc2
+	select DEFAULT_kmod-usb-ohci
+	select DEFAULT_kmod-usb2
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_logd
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Support for Xiaomi MiWiFi Mini routers
+
+config TARGET_ramips_mt7621_Default
+	bool "Default Profile"
+	depends on TARGET_ramips_mt7621
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-leds-gpio
+	select DEFAULT_kmod-ledtrig-usbdev
+	select DEFAULT_kmod-mt76
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_kmod-usb-core
+	select DEFAULT_kmod-usb3
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_logd
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Default package set compatible with most boards.
+
+config TARGET_ramips_mt7621_Firefly
+	bool "Firefly Device"
+	depends on TARGET_ramips_mt7621
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-leds-gpio
+	select DEFAULT_kmod-ledtrig-usbdev
+	select DEFAULT_kmod-mt76
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_kmod-sdhci-mt7620
+	select DEFAULT_kmod-usb-core
+	select DEFAULT_kmod-usb-hid
+	select DEFAULT_kmod-usb3
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_logd
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Default package set compatible with most boards.
+
+config TARGET_ramips_mt7621_RE6500
+	bool "Linksys RE6500"
+	depends on TARGET_ramips_mt7621
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-leds-gpio
+	select DEFAULT_kmod-ledtrig-usbdev
+	select DEFAULT_kmod-mt76
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_kmod-usb-core
+	select DEFAULT_kmod-usb3
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_logd
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set compatible with the Linksys RE6500 board.
+
+config TARGET_ramips_mt7621_PBR-M1
+	bool "PBR-M1 Device"
+	depends on TARGET_ramips_mt7621
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-ata-ahci
+	select DEFAULT_kmod-ata-core
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-leds-gpio
+	select DEFAULT_kmod-ledtrig-usbdev
+	select DEFAULT_kmod-mt76
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_kmod-rtc-pcf8563
+	select DEFAULT_kmod-sdhci-mt7620
+	select DEFAULT_kmod-usb-core
+	select DEFAULT_kmod-usb-hid
+	select DEFAULT_kmod-usb3
+	select DEFAULT_kmod-usb3-mt7621
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_logd
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Default package set compatible with most boards.
+
+config TARGET_ramips_mt7621_ZBT-WG2626
+	bool "ZBT-WG2626 Device"
+	depends on TARGET_ramips_mt7621
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-ata-ahci
+	select DEFAULT_kmod-ata-core
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-leds-gpio
+	select DEFAULT_kmod-ledtrig-usbdev
+	select DEFAULT_kmod-mt76
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_kmod-sdhci-mt7620
+	select DEFAULT_kmod-usb-core
+	select DEFAULT_kmod-usb3
+	select DEFAULT_kmod-usb3-mt7621
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_logd
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set for ZBT-WG2626 device
+
+config TARGET_ramips_mt7628_Default
+	bool "Default Profile"
+	depends on TARGET_ramips_mt7628
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-leds-gpio
+	select DEFAULT_kmod-ledtrig-usbdev
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_kmod-usb-core
+	select DEFAULT_kmod-usb-ohci
+	select DEFAULT_kmod-usb2
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_logd
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Default package set compatible with most boards.
+
+config TARGET_ramips_mt7688_Default
+	bool "Default Profile"
+	depends on TARGET_ramips_mt7688
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-leds-gpio
+	select DEFAULT_kmod-ledtrig-usbdev
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_kmod-usb-core
+	select DEFAULT_kmod-usb-ohci
+	select DEFAULT_kmod-usb2
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_logd
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Default package set compatible with most boards.
+
+config TARGET_ramips_mt7688_LinkIt7688
+	bool "LinkIt7688"
+	depends on TARGET_ramips_mt7688
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-leds-gpio
+	select DEFAULT_kmod-ledtrig-netdev
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_kmod-usb-core
+	select DEFAULT_kmod-usb-ohci
+	select DEFAULT_kmod-usb2
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_logd
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uboot-envtools
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Default package set compatible with most boards.
+
+config TARGET_ramips_rt3883_Default
+	bool "Default Profile"
+	depends on TARGET_ramips_rt3883
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-leds-gpio
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_kmod-rt2800-pci
+	select DEFAULT_kmod-rt2800-soc
+	select DEFAULT_kmod-usb-core
+	select DEFAULT_kmod-usb-ohci
+	select DEFAULT_kmod-usb2
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_logd
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Default package set compatible with most boards.
+
+config TARGET_ramips_rt3883_RTN56U
+	bool "Asus RT-N56U"
+	depends on TARGET_ramips_rt3883
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-leds-gpio
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_kmod-rt2800-pci
+	select DEFAULT_kmod-rt2800-soc
+	select DEFAULT_kmod-usb-core
+	select DEFAULT_kmod-usb-ohci
+	select DEFAULT_kmod-usb2
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_logd
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set compatible with the Asus RT-N56U board.
+
+config TARGET_ramips_rt3883_DIR645
+	bool "D-Link DIR-645"
+	depends on TARGET_ramips_rt3883
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-leds-gpio
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_kmod-rt2800-pci
+	select DEFAULT_kmod-rt2800-soc
+	select DEFAULT_kmod-usb-core
+	select DEFAULT_kmod-usb-ohci
+	select DEFAULT_kmod-usb2
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_logd
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set compatible with the D-Link DIR-645 board.
+
+config TARGET_ramips_rt3883_BR6475ND
+	bool "Edimax BR-6475nD"
+	depends on TARGET_ramips_rt3883
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-leds-gpio
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_kmod-rt2800-pci
+	select DEFAULT_kmod-rt2800-soc
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_logd
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set compatible with the Edimax BR-6475nD board.
+
+config TARGET_ramips_rt3883_OMNIEMBHPM
+	bool "Omnima EMB-HPM board"
+	depends on TARGET_ramips_rt3883
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-leds-gpio
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_kmod-rt2800-pci
+	select DEFAULT_kmod-rt2800-soc
+	select DEFAULT_kmod-usb-core
+	select DEFAULT_kmod-usb-ohci
+	select DEFAULT_kmod-usb2
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_logd
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set compatible with the Omnima EMB-HPM board.
+
+config TARGET_ramips_rt3883_CYSWR1100
+	bool "Samsung CY-SWR1100"
+	depends on TARGET_ramips_rt3883
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-leds-gpio
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_kmod-rt2800-pci
+	select DEFAULT_kmod-rt2800-soc
+	select DEFAULT_kmod-usb-core
+	select DEFAULT_kmod-usb-ohci
+	select DEFAULT_kmod-usb2
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_logd
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set compatible with the Samsung CY-SWR1100 board.
+
+config TARGET_ramips_rt3883_TEW691GR
+	bool "TRENDnet TEW-691GR"
+	depends on TARGET_ramips_rt3883
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-leds-gpio
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_kmod-rt2800-pci
+	select DEFAULT_kmod-rt2800-soc
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_logd
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set compatible with the TRENDnet TEW-691GR board.
+
+config TARGET_ramips_rt3883_TEW692GR
+	bool "TRENDnet TEW-692GR"
+	depends on TARGET_ramips_rt3883
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-leds-gpio
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_kmod-rt2800-pci
+	select DEFAULT_kmod-rt2800-soc
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_logd
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set compatible with the TRENDnet TEW-692GR board.
+
+config TARGET_ramips_rt288x_Default
+	bool "Default Profile"
+	depends on TARGET_ramips_rt288x
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-leds-gpio
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_kmod-rt2800-soc
+	select DEFAULT_kmod-swconfig
+	select DEFAULT_kmod-switch-rtl8366s
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_logd
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Default package set compatible with most boards.
+
+config TARGET_ramips_rt288x_RTN15
+	bool "Asus RT-N15"
+	depends on TARGET_ramips_rt288x
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-leds-gpio
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_kmod-rt2800-soc
+	select DEFAULT_kmod-swconfig
+	select DEFAULT_kmod-switch-rtl8366s
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_logd
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set for Asus RT-N15 board
+
+config TARGET_ramips_rt288x_F5D8235V1
+	bool "Belkin F5D8235 V1"
+	depends on TARGET_ramips_rt288x
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-leds-gpio
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_kmod-rt2800-soc
+	select DEFAULT_kmod-swconfig
+	select DEFAULT_kmod-switch-rtl8366s
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_logd
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+
+config TARGET_ramips_rt288x_BR6524N
+	bool "Edimax BR6524N"
+	depends on TARGET_ramips_rt288x
+	
+
+	select DEFAULT_base-files
+	select DEFAULT_busybox
+	select DEFAULT_dnsmasq
+	select DEFAULT_dropbear
+	select DEFAULT_firewall
+	select DEFAULT_fstools
+	select DEFAULT_ip6tables
+	select DEFAULT_iptables
+	select DEFAULT_iwinfo
+	select DEFAULT_kmod-gpio-button-hotplug
+	select DEFAULT_kmod-leds-gpio
+	select DEFAULT_kmod-nf-nathelper
+	select DEFAULT_kmod-rt2800-soc
+	select DEFAULT_kmod-swconfig
+	select DEFAULT_kmod-switch-ip17xx
+	select DEFAULT_libc
+	select DEFAULT_libgcc
+	select DEFAULT_logd
+	select DEFAULT_mtd
+	select DEFAULT_netifd
+	select DEFAULT_odhcp6c
+	select DEFAULT_odhcpd
+	select DEFAULT_opkg
+	select DEFAULT_ppp
+	select DEFAULT_ppp-mod-pppoe
+	select DEFAULT_swconfig
+	select DEFAULT_uci
+	select DEFAULT_wpad-mini
+	help
+	  Package set for Edimax BR6524N
+
+endchoice
+
+config HAS_SUBTARGETS
+	bool
+
+config TARGET_BOARD
+	string
+
+		default "ramips" if TARGET_ramips
+config TARGET_ARCH_PACKAGES
+	string
+	
+		default "ramips_24kec" if TARGET_ramips_rt305x
+		default "ramips_24kec" if TARGET_ramips_mt7620
+		default "ramips_1004kc" if TARGET_ramips_mt7621
+		default "ramips_24kec" if TARGET_ramips_mt7628
+		default "ramips_24kec" if TARGET_ramips_mt7688
+		default "ramips_24kec" if TARGET_ramips_rt3883
+		default "ramips" if TARGET_ramips_rt288x
+
+config DEFAULT_TARGET_OPTIMIZATION
+	string
+	default "-Os -pipe -mno-branch-likely -mips32r2 -mtune=24kec -mdsp" if TARGET_ramips_rt305x
+	default "-Os -pipe -mno-branch-likely -mips32r2 -mtune=24kec -mdsp" if TARGET_ramips_mt7620
+	default "-Os -pipe -mmt -mips32r2 -mtune=1004kc" if TARGET_ramips_mt7621
+	default "-Os -pipe -mno-branch-likely -mips32r2 -mtune=24kec -mdsp" if TARGET_ramips_mt7628
+	default "-Os -pipe -mno-branch-likely -mips32r2 -mtune=24kec -mdsp" if TARGET_ramips_mt7688
+	default "-Os -pipe -mno-branch-likely -mips32r2 -mtune=74kc -mdspr2" if TARGET_ramips_rt3883
+	default "-Os -pipe -mno-branch-likely -mips32r2 -mtune=mips32r2" if TARGET_ramips_rt288x
+	default "-Os -pipe -funit-at-a-time"
+
+config CPU_TYPE
+	string
+	default "24kec+dsp" if TARGET_ramips_rt305x
+	default "24kec+dsp" if TARGET_ramips_mt7620
+	default "1004kc+dsp" if TARGET_ramips_mt7621
+	default "24kec+dsp" if TARGET_ramips_mt7628
+	default "24kec+dsp" if TARGET_ramips_mt7688
+	default "74kc+dsp2" if TARGET_ramips_rt3883
+	default "mips32r2" if TARGET_ramips_rt288x
+	default ""
+
+config LINUX_3_18
+	bool
+
+	config DEFAULT_base-files
+		bool
+
+	config DEFAULT_block-mount
+		bool
+
+	config DEFAULT_busybox
+		bool
+
+	config DEFAULT_dnsmasq
+		bool
+
+	config DEFAULT_dropbear
+		bool
+
+	config DEFAULT_firewall
+		bool
+
+	config DEFAULT_fstools
+		bool
+
+	config DEFAULT_ip6tables
+		bool
+
+	config DEFAULT_iptables
+		bool
+
+	config DEFAULT_iwinfo
+		bool
+
+	config DEFAULT_kmod-ata-ahci
+		bool
+
+	config DEFAULT_kmod-ata-core
+		bool
+
+	config DEFAULT_kmod-fs-ext4
+		bool
+
+	config DEFAULT_kmod-fs-msdos
+		bool
+
+	config DEFAULT_kmod-fs-vfat
+		bool
+
+	config DEFAULT_kmod-gpio-button-hotplug
+		bool
+
+	config DEFAULT_kmod-gpio-pcf857x
+		bool
+
+	config DEFAULT_kmod-hwmon-lm92
+		bool
+
+	config DEFAULT_kmod-i2c-core
+		bool
+
+	config DEFAULT_kmod-i2c-gpio
+		bool
+
+	config DEFAULT_kmod-i2c-ralink
+		bool
+
+	config DEFAULT_kmod-leds-gpio
+		bool
+
+	config DEFAULT_kmod-ledtrig-netdev
+		bool
+
+	config DEFAULT_kmod-ledtrig-timer
+		bool
+
+	config DEFAULT_kmod-ledtrig-usbdev
+		bool
+
+	config DEFAULT_kmod-mt76
+		bool
+
+	config DEFAULT_kmod-nf-nathelper
+		bool
+
+	config DEFAULT_kmod-rt2500-usb
+		bool
+
+	config DEFAULT_kmod-rt2800-pci
+		bool
+
+	config DEFAULT_kmod-rt2800-soc
+		bool
+
+	config DEFAULT_kmod-rt2800-usb
+		bool
+
+	config DEFAULT_kmod-rt2x00-usb
+		bool
+
+	config DEFAULT_kmod-rtc-pcf8563
+		bool
+
+	config DEFAULT_kmod-scsi-core
+		bool
+
+	config DEFAULT_kmod-scsi-generic
+		bool
+
+	config DEFAULT_kmod-sdhci-mt7620
+		bool
+
+	config DEFAULT_kmod-sound-core
+		bool
+
+	config DEFAULT_kmod-spi-dev
+		bool
+
+	config DEFAULT_kmod-swconfig
+		bool
+
+	config DEFAULT_kmod-switch-ip17xx
+		bool
+
+	config DEFAULT_kmod-switch-rtl8366rb
+		bool
+
+	config DEFAULT_kmod-switch-rtl8366s
+		bool
+
+	config DEFAULT_kmod-usb-audio
+		bool
+
+	config DEFAULT_kmod-usb-core
+		bool
+
+	config DEFAULT_kmod-usb-dwc2
+		bool
+
+	config DEFAULT_kmod-usb-hid
+		bool
+
+	config DEFAULT_kmod-usb-net
+		bool
+
+	config DEFAULT_kmod-usb-ohci
+		bool
+
+	config DEFAULT_kmod-usb-storage
+		bool
+
+	config DEFAULT_kmod-usb-storage-extras
+		bool
+
+	config DEFAULT_kmod-usb2
+		bool
+
+	config DEFAULT_kmod-usb3
+		bool
+
+	config DEFAULT_kmod-usb3-mt7621
+		bool
+
+	config DEFAULT_kmod-video-core
+		bool
+
+	config DEFAULT_kmod-video-uvc
+		bool
+
+	config DEFAULT_libc
+		bool
+
+	config DEFAULT_libgcc
+		bool
+
+	config DEFAULT_logd
+		bool
+
+	config DEFAULT_mtd
+		bool
+
+	config DEFAULT_netifd
+		bool
+
+	config DEFAULT_odhcp6c
+		bool
+
+	config DEFAULT_odhcpd
+		bool
+
+	config DEFAULT_opkg
+		bool
+
+	config DEFAULT_ppp
+		bool
+
+	config DEFAULT_ppp-mod-pppoe
+		bool
+
+	config DEFAULT_rssileds
+		bool
+
+	config DEFAULT_swconfig
+		bool
+
+	config DEFAULT_uboot-envtools
+		bool
+
+	config DEFAULT_uci
+		bool
+
+	config DEFAULT_usbutils
+		bool
+
+	config DEFAULT_wpad-mini
+		bool
+
